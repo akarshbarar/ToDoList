@@ -2,6 +2,7 @@ import 'dart:collection';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:todoapp/ItemPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +17,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'ToDo-List',
       home: HomePage(),
-      routes: {},
+      routes: {
+        '/addItem': (context) => ItemPage(),
+        '/home': (context) => HomePage()
+      },
     );
   }
 }
@@ -78,7 +82,9 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pushNamed('/addItem');
+          },
           child: Icon(Icons.add),
         ),
       ),
