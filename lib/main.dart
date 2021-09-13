@@ -71,7 +71,12 @@ class _HomePageState extends State<HomePage> {
                                     Text(snapshot.data![i]["des"].toString()),
                                 trailing: IconButton(
                                   icon: Icon(Icons.delete),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    var id = snapshot.data![i]["id"].toString();
+                                    http.delete(Uri.parse(
+                                        "http://192.168.29.14:3000/delete/$id"));
+                                    Navigator.of(context).pushNamed('/home');
+                                  },
                                 ),
                               );
                             });
