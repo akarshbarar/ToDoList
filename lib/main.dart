@@ -2,6 +2,7 @@ import 'dart:collection';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:todoapp/EditPage.dart';
 import 'package:todoapp/ItemPage.dart';
 
 void main() {
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
       home: HomePage(),
       routes: {
         '/addItem': (context) => ItemPage(),
-        '/home': (context) => HomePage()
+        '/home': (context) => HomePage(),
+        '/edit': (context) => EditPage()
       },
     );
   }
@@ -78,6 +80,9 @@ class _HomePageState extends State<HomePage> {
                                     Navigator.of(context).pushNamed('/home');
                                   },
                                 ),
+                                onTap: () {
+                                  Navigator.of(context).pushNamed('/edit');
+                                },
                               );
                             });
                       } else {
