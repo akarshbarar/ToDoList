@@ -20,8 +20,7 @@ class MyApp extends StatelessWidget {
       home: HomePage(),
       routes: {
         '/addItem': (context) => ItemPage(),
-        '/home': (context) => HomePage(),
-        '/edit': (context) => EditPage()
+        '/home': (context) => HomePage()
       },
     );
   }
@@ -81,7 +80,17 @@ class _HomePageState extends State<HomePage> {
                                   },
                                 ),
                                 onTap: () {
-                                  Navigator.of(context).pushNamed('/edit');
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => EditPage(
+                                          title: snapshot.data![i]["title"]
+                                              .toString(),
+                                          des: snapshot.data![i]["des"]
+                                              .toString(),
+                                          completed: snapshot.data![i]
+                                                  ["completed"]
+                                              .toString(),
+                                          id: snapshot.data![i]["id"]
+                                              .toString())));
                                 },
                               );
                             });
