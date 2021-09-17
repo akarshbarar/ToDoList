@@ -1,6 +1,6 @@
-# todoapp
+# ToDoList App
 
-A new Flutter project.
+Todo list app with nodejs backend.
 
 ## Getting Started
 
